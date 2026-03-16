@@ -24,13 +24,14 @@ pub fn generate_component_impls(idents: Vec<Ident>) -> proc_macro2::TokenStream 
                     #i as #dingus_internal::ComponentIndex;
 
                 fn component_type_id() -> #dingus_internal::ComponentTypeId {
-                    #dingus_internal::type_id_to_component_id::<#ident>()
+                    #i as #dingus_internal::ComponentTypeId
                 }
 
                 fn component_info() -> #dingus_internal::ComponentInfo {
                     #dingus_internal::ComponentInfo {
 
-                        type_id:  #dingus_internal::type_id_to_component_id::<#ident>(),
+                        type_id:  #i as #dingus_internal::ComponentTypeId,
+
 
                         index:    Self::COMPONENT_INDEX,
 

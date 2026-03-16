@@ -42,6 +42,9 @@ impl ComponentRegistry {
         self.next_index += 1;
         index
     }
+    pub fn sort_infos(&mut self) {
+        self.infos.sort_by_key(|c| c.index)
+    }
 
     /// Get component info by component hash, only used during debug
     pub fn get_by_type_id(&self, type_id: ComponentTypeId) -> Option<&ComponentInfo> {
