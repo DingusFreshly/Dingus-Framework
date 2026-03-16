@@ -1,1 +1,0 @@
-Map<std::slice::Iter<'_, buffer::Command>, {closure@dingus_ecs\src\command\buffer.rs:45:54: 45:59}>

@@ -1,2 +1,0 @@
-for<'a, 'b, 'c> fn(dingus_ecs::prelude::ResMut<'a, Renderer>, dingus_ecs::prelude::Query<'b, (&'c Position, Option<Player>)>) {render_system}
-for<'a, 'b, 'c> fn(dingus_ecs::prelude::ResMut<'a, Renderer>, dingus_ecs::prelude::Query<'b, (&'c Position, Option<Player>)>) {render_system}: dingus_ecs::schedule::system_trait::IntoSystem<_>

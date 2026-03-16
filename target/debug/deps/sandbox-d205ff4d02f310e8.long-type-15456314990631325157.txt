@@ -1,1 +1,0 @@
-for<'a> fn(dingus_ecs::prelude::ResMut<'a, Time>) {update_system}: dingus_ecs::schedule::system_trait::IntoSystem<_>
