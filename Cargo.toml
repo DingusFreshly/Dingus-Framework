@@ -1,0 +1,4 @@
+[workspace]
+members = ["dingus_ecs"
+
+, "dingus_macros", "dingus_builtins", "sandbox"]

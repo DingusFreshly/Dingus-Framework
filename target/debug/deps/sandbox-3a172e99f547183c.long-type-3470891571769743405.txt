@@ -1,0 +1,2 @@
+for<'a, 'b, 'c> fn(dingus_ecs::prelude::Query<'a, &'b mut Position>, {type error}, dingus_ecs::prelude::Res<'c, Time>) {movement_system}
+for<'a, 'b, 'c> fn(dingus_ecs::prelude::Query<'a, &'b mut Position>, {type error}, dingus_ecs::prelude::Res<'c, Time>) {movement_system}: dingus_ecs::schedule::system_trait::IntoSystem<_>

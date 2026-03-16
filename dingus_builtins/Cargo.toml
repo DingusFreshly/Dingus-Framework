@@ -1,0 +1,10 @@
+[package]
+name = "dingus_builtins"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dingus_ecs  = { path = "../dingus_ecs" }
+linkme = "0.3.0"
+minifb = "0.20.0"
+rand = "0.8.5"
