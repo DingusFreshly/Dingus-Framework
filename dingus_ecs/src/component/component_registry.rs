@@ -45,6 +45,16 @@ impl ComponentRegistry {
     pub fn sort_infos(&mut self) {
         self.infos.sort_by_key(|c| c.index)
     }
+    pub fn assert_info_order(&self) {
+        for index in self.infos.iter() {
+            println!("{}", index.index);
+        }
+        for (i, d) in self.infos.iter().enumerate() {
+            assert_eq!(d.index as usize, i,
+                       "Component IDs must be dense starting at 0. Got {} at position {}",
+                       d.index, i);
+        }
+    }
 
     /// Get component info by component hash, only used during debug
     pub fn get_by_type_id(&self, type_id: ComponentTypeId) -> Option<&ComponentInfo> {

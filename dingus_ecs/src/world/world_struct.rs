@@ -35,9 +35,11 @@ impl World {
         for register_fn in ALL_COMPONENTS {
             //calls `ComponentRegistry::register()` on all the components
             register_fn(&mut registry);
+            
         }
         registry.sort_infos();
-
+        registry.assert_info_order();
+        
         //2: Collect archetype descriptors via linkme slice
         let mut raw_descs: Vec<StaticArchetypeDescriptor> = Vec::new();
         for register_fn in ALL_ARCHETYPE_DESCRIPTORS {

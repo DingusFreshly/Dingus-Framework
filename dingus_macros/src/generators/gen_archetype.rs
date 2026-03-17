@@ -61,7 +61,7 @@ pub fn generate_bundle(parser: &ArchetypeParser, i: usize) -> TokenStream {
             ) {
 
                 #(
-                    let col = archetype.column_index[&<#comp_types as #dingus_internal::ComponentTrait>::component_type_id()];
+                    let col = archetype.column_of(<#comp_types as #dingus_internal::ComponentTrait>::component_type_id());
 
                     (archetype.columns[col].ptr_at(row) as *mut #comp_types)
                         .write(self.#field_names);

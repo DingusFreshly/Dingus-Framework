@@ -12,7 +12,6 @@ pub fn generate_component_impls(idents: Vec<Ident>) -> proc_macro2::TokenStream 
     //impls.push(quote! { use #dingus_internal::ComponentTrait;});
 
     for (i, ident) in idents.iter().enumerate() {
-
         let linkme_name = format_ident!("_REGISTER_{}", ident);
 
         let impl_block = quote! {

@@ -24,6 +24,7 @@ impl Archetype {
     pub fn from_descriptor(desc: &StaticArchetypeDescriptor, infos: &[ComponentInfo]) -> Self {
         let mut columns = Vec::with_capacity(infos.len());
         let mut column_index = HashMap::new();
+        
         for (i, info) in infos.iter().enumerate() {
             column_index.insert(info.type_id, i);
             let mut col = ComponentStorage::new(info.type_id, info.layout);

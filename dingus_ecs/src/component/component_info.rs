@@ -2,7 +2,7 @@ use super::{ComponentIndex, ComponentTypeId};
 use std::alloc::Layout;
 /// Everything the ECS needs to know about a component type at runtime.
 /// Produced by the include_components! macro and registered once at startup.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct ComponentInfo {
     /// Unique numeric identity derived from std::any::TypeId.
     pub type_id: ComponentTypeId,
