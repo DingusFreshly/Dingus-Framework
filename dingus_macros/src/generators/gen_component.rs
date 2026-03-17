@@ -19,20 +19,14 @@ pub fn generate_component_impls(idents: Vec<Ident>) -> proc_macro2::TokenStream 
             
             impl #dingus_internal::ComponentTrait for #ident {
 
-                const COMPONENT_INDEX: #dingus_internal::ComponentIndex =
-                    #i as #dingus_internal::ComponentIndex;
-
-                fn component_type_id() -> #dingus_internal::ComponentTypeId {
-                    #i as #dingus_internal::ComponentTypeId
-                }
+                const COMPONENT_TYPE_ID: #dingus_internal::ComponentTypeId =
+                    #i as #dingus_internal::ComponentTypeId;
 
                 fn component_info() -> #dingus_internal::ComponentInfo {
                     #dingus_internal::ComponentInfo {
 
-                        type_id:  #i as #dingus_internal::ComponentTypeId,
-
-
-                        index:    Self::COMPONENT_INDEX,
+                        type_id:  Self::COMPONENT_TYPE_ID,
+                        
 
                         layout:   std::alloc::Layout::new::<#ident>(),
 

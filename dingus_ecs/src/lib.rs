@@ -68,7 +68,6 @@ pub mod internal {
     pub use crate::component::{
         prelude::{
             ComponentInfo,
-            ComponentIndex,
             ComponentRegistry,
             ComponentTrait,
             ComponentTypeId,

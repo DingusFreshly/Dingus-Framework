@@ -23,7 +23,7 @@ pub fn generate_archetype_impl(parser: &ArchetypeParser, i: usize) -> TokenStrea
 
             const COMPONENT_SET: #dingus_internal::FastBit =
                 #dingus_internal::FastBit::EMPTY
-                #(.with(<#comp_types as #dingus_internal::ComponentTrait>::COMPONENT_INDEX))*;
+                #(.with(<#comp_types as #dingus_internal::ComponentTrait>::COMPONENT_TYPE_ID))*;
 
             const NAME: &'static str = stringify!(#name);
 
@@ -61,7 +61,7 @@ pub fn generate_bundle(parser: &ArchetypeParser, i: usize) -> TokenStream {
             ) {
 
                 #(
-                    let col = archetype.column_of(<#comp_types as #dingus_internal::ComponentTrait>::component_type_id());
+                    let col = archetype.column_of(<#comp_types as #dingus_internal::ComponentTrait>::COMPONENT_TYPE_ID);
 
                     (archetype.columns[col].ptr_at(row) as *mut #comp_types)
                         .write(self.#field_names);

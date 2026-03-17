@@ -162,7 +162,7 @@ impl World {
         if !self.is_alive(entity) { return None; }
         let loc = self.entity_locations[entity.index as usize];
         let arch = &self.archetypes[loc.archetype_id as usize];
-        let &col_idx = arch.column_index.get(&T::component_type_id())?;
+        let &col_idx = arch.column_index.get(&T::COMPONENT_TYPE_ID)?;
         Some(unsafe { arch.columns[col_idx].get::<T>(loc.row as usize) })
     }
     
@@ -170,7 +170,7 @@ impl World {
         if !self.is_alive(entity) { return None; }
         let loc = self.entity_locations[entity.index as usize];
         let arch = &self.archetypes[loc.archetype_id as usize];
-        let &col_idx = arch.column_index.get(&T::component_type_id())?;
+        let &col_idx = arch.column_index.get(&T::COMPONENT_TYPE_ID)?;
         Some(unsafe { arch.columns[col_idx].get_mut::<T>(loc.row as usize) })
     }
 
@@ -179,7 +179,7 @@ impl World {
     pub fn set<T: ComponentTrait>(&mut self, entity: Entity, value: T) {//TODO! proper error handling here instead of panicking
         let loc = self.entity_locations[entity.index as usize];
         let arch = &mut self.archetypes[loc.archetype_id as usize];
-        let col_idx = arch.column_of(T::component_type_id());
+        let col_idx = arch.column_of(T::COMPONENT_TYPE_ID);
         unsafe { *arch.columns[col_idx].get_mut::<T>(loc.row as usize) = value; }
     }
 }

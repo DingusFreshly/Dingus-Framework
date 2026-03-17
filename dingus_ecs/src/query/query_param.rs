@@ -17,9 +17,9 @@ impl<T: ComponentTrait> QueryParam for &T {
     type Item<'a> = &'a T;
     type State = ();
     fn init_state(_: &World) -> () { () }
-    #[inline] fn matches_archetype(a: &Archetype) -> bool { a.has_component_id(T::component_type_id()) }
+    #[inline] fn matches_archetype(a: &Archetype) -> bool { a.has_component_id(T::COMPONENT_TYPE_ID) }
     #[inline] unsafe fn fetch_ptrs(a: &Archetype, row: usize) -> &T {
-        a.columns[a.column_of(T::component_type_id())].get::<T>(row)
+        a.columns[a.column_of(T::COMPONENT_TYPE_ID)].get::<T>(row)
     }
 }
 
@@ -28,10 +28,10 @@ impl<T: ComponentTrait> QueryParam for &mut T {
     type Item<'a> = &'a mut T;
     type State = ();
     fn init_state(_: &World) -> () { () }
-    #[inline] fn matches_archetype(a: &Archetype) -> bool { a.has_component_id(T::component_type_id()) }
+    #[inline] fn matches_archetype(a: &Archetype) -> bool { a.has_component_id(T::COMPONENT_TYPE_ID) }
     #[inline] unsafe fn fetch_ptrs(a: &Archetype, row: usize) -> &mut T {
         // Safety: scheduler guarantees exclusive access to this column.
-        let col = &a.columns[a.column_of(T::component_type_id())] as *const _ as *mut ComponentStorage;
+        let col = &a.columns[a.column_of(T::COMPONENT_TYPE_ID)] as *const _ as *mut ComponentStorage;
         (*col).get_mut::<T>(row)
     }
 }
@@ -43,7 +43,7 @@ impl<T: ComponentTrait> QueryParam for Option<&T> {
     fn init_state(_: &World) -> () { () }
     #[inline] fn matches_archetype(_: &Archetype) -> bool { true }
     #[inline] unsafe fn fetch_ptrs(a: &Archetype, row: usize) -> Option<&T> {
-        a.column_index.get(&T::component_type_id())
+        a.column_index.get(&T::COMPONENT_TYPE_ID)
             .map(|&ci| a.columns[ci].get::<T>(row))
     }
 }
@@ -63,7 +63,7 @@ impl<T: ComponentTrait> QueryParam for Option<&mut T> {
     fn init_state(_: &World) -> () { () }
     #[inline] fn matches_archetype(_: &Archetype) -> bool { true }
     #[inline] unsafe fn fetch_ptrs(a: &Archetype, row: usize) -> Option<&mut T> {
-        a.column_index.get(&T::component_type_id())
+        a.column_index.get(&T::COMPONENT_TYPE_ID)
             .map(|&ci| a.columns[ci].get_mut::<T>(row))
     }
 }
@@ -74,7 +74,7 @@ impl<T: ComponentTrait> QueryParam for With<T> {
     type Item<'a> = ();
     type State = ();
     fn init_state(_: &World) -> () { () }
-    #[inline] fn matches_archetype(a: &Archetype) -> bool { a.has_component_id(T::component_type_id()) }
+    #[inline] fn matches_archetype(a: &Archetype) -> bool { a.has_component_id(T::COMPONENT_TYPE_ID) }
     #[inline] unsafe fn fetch_ptrs(_: &Archetype, _: usize) -> () { () }
 }
 
@@ -84,7 +84,7 @@ impl<T: ComponentTrait> QueryParam for Without<T> {
     type Item<'a> = ();
     type State = ();
     fn init_state(_: &World) -> () { () }
-    #[inline] fn matches_archetype(a: &Archetype) -> bool { !a.has_component_id(T::component_type_id()) }
+    #[inline] fn matches_archetype(a: &Archetype) -> bool { !a.has_component_id(T::COMPONENT_TYPE_ID) }
     #[inline] unsafe fn fetch_ptrs(_: &Archetype, _: usize) -> () { () }
 }
 

@@ -1,5 +1,6 @@
 pub use crate::fast_bit::FastBit;
-pub use crate::component::ComponentIndex;
+use crate::internal::ComponentTypeId;
+
 /// represents what components or resources are read and written to by a query
 #[derive(Clone, Default)]
 pub struct Access {
@@ -12,6 +13,6 @@ impl Access {
             || !self.writes.is_disjoint(&other.reads)
             || !self.reads.is_disjoint(&other.writes)
     }
-    pub fn add_read(&mut self, index: ComponentIndex)  { self.reads.set(index); }
-    pub fn add_write(&mut self, index: ComponentIndex) { self.writes.set(index); }
+    pub fn add_read(&mut self, index: ComponentTypeId)  { self.reads.set(index); }
+    pub fn add_write(&mut self, index: ComponentTypeId) { self.writes.set(index); }
 }

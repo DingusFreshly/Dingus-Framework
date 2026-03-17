@@ -7,7 +7,7 @@
 /// * 64 slots
 /// 
 
-pub use crate::component::prelude::{ComponentIndex};
+pub use crate::component::prelude::{ComponentTypeId};
 
 pub const FASTBIT_WORDS: usize = 4; // 256 component slots
 
@@ -23,7 +23,7 @@ impl FastBit {
 
     /// Returns a new FastBit with bit `index` set. Used in const contexts.
     #[inline]
-    pub const fn with(mut self, index: ComponentIndex) -> FastBit {
+    pub const fn with(mut self, index: ComponentTypeId) -> FastBit {
         let word = (index / 64) as usize;
         let bit  = index % 64;
         self.words[word] |= 1u64 << bit;
@@ -58,13 +58,13 @@ impl FastBit {
 
     // ── runtime methods (for non-const use) ──────────────────────────────────
 
-    #[inline] pub fn set(&mut self, index: ComponentIndex) {
+    #[inline] pub fn set(&mut self, index: ComponentTypeId) {
         self.words[(index / 64) as usize] |= 1u64 << (index % 64);
     }
-    #[inline] pub fn unset(&mut self, index: ComponentIndex) {
+    #[inline] pub fn unset(&mut self, index: ComponentTypeId) {
         self.words[(index / 64) as usize] &= !(1u64 << (index % 64));
     }
-    #[inline] pub fn contains(&self, index: ComponentIndex) -> bool {
+    #[inline] pub fn contains(&self, index: ComponentTypeId) -> bool {
         (self.words[(index / 64) as usize] >> (index % 64)) & 1 == 1
     }
     #[inline] pub fn is_superset_of(&self, other: &FastBit) -> bool {
@@ -86,15 +86,15 @@ pub struct FastBitIter {
     word_bits: u64,
 }
 impl Iterator for FastBitIter {
-    type Item = ComponentIndex;
-    fn next(&mut self) -> Option<ComponentIndex> {
+    type Item = ComponentTypeId;
+    fn next(&mut self) -> Option<ComponentTypeId> {
         while self.word_bits == 0 {
             self.word += 1;
             if self.word >= FASTBIT_WORDS { return None; }
             self.word_bits = self.bits.words[self.word];
         }
-        let bit = self.word_bits.trailing_zeros();
+        let bit = self.word_bits.trailing_zeros() as u64;
         self.word_bits &= self.word_bits - 1;
-        Some(self.word as u32 * 64 + bit)
+        Some(self.word as ComponentTypeId * 64 + bit)
     }
 }

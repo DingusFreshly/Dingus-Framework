@@ -1,4 +1,4 @@
-use super::prelude::{ComponentIndex, ComponentTypeId, ComponentInfo};
+use super::prelude::{ComponentTypeId, ComponentInfo};
 use std::collections::HashMap;
 use linkme::distributed_slice;
 use crate::fast_bit::FASTBIT_WORDS;
@@ -11,59 +11,49 @@ pub const MAX_COMPONENTS: usize = FASTBIT_WORDS * 64;
 pub struct ComponentRegistry {
     /// Indexed by ComponentIndex
     infos: Vec<ComponentInfo>,
-    /// Maps ComponentTypeId hash to its index in infos, only used during debug
-    by_type_id: HashMap<ComponentTypeId, ComponentIndex>,
-    /// Used for making sure len(infos) <= MAX_COMPONENTS
-    next_index: ComponentIndex,
+    // Maps ComponentTypeId hash to its index in infos, only used during debug
+    //by_type_id: HashMap<ComponentTypeId, ComponentIndex>,
 }
 
 impl ComponentRegistry {
     pub fn new() -> Self {
         ComponentRegistry {
-            infos: Vec::new(), by_type_id: HashMap::new(), next_index: 0,
+            infos: Vec::new(),
         }
     }
 
     /// Register a component type and return its assigned ComponentIndex.
     /// Panics if called after simulation begins or if MAX_COMPONENTS is exceeded.
-    pub fn register(&mut self, mut info: ComponentInfo) -> ComponentIndex {
+    pub fn register(&mut self, mut info: ComponentInfo) -> ComponentTypeId {
         assert!(
-            self.next_index < MAX_COMPONENTS as u32,
-            "ComponentRegistry: exceeded MAX_COMPONENTS ({})", MAX_COMPONENTS
+            self.infos.len() < MAX_COMPONENTS,
+            "ComponentRegistry: exceeded MAX_COMPONENTS ({}), increase `FastBit::FASTBIT_WORDS` to add more", MAX_COMPONENTS
         );
-        if let Some(&existing) = self.by_type_id.get(&info.type_id) {
-            //debug_assert!(false, "Component {} registered twice!")
-            return existing; // idempotent re-registration
+        
+        let index = info.type_id;
+
+        if self.infos.len() <= index as usize {
+            self.infos.resize(index as usize + 1, unsafe { ComponentInfo::empty() });
         }
-        let index = self.next_index;
-        info.index = index;
-        self.by_type_id.insert(info.type_id, index);
-        self.infos.push(info);
-        self.next_index += 1;
+        
+        self.infos[index as usize ] = info ;
         index
     }
     pub fn sort_infos(&mut self) {
-        self.infos.sort_by_key(|c| c.index)
+        self.infos.sort_by_key(|c| c.type_id)
     }
     pub fn assert_info_order(&self) {
         for index in self.infos.iter() {
-            println!("{}", index.index);
+            println!("{}", index.type_id);
         }
         for (i, d) in self.infos.iter().enumerate() {
-            assert_eq!(d.index as usize, i,
+            assert_eq!(d.type_id as usize, i,
                        "Component IDs must be dense starting at 0. Got {} at position {}",
-                       d.index, i);
+                       d.type_id, i);
         }
     }
-
-    /// Get component info by component hash, only used during debug
-    pub fn get_by_type_id(&self, type_id: ComponentTypeId) -> Option<&ComponentInfo> {
-        self.by_type_id
-            .get(&type_id)
-            .map(|&idx| &self.infos[idx as usize])
-    }
-
-    pub fn get_by_index(&self, index: ComponentIndex) -> &ComponentInfo {
+    
+    pub fn get_by_index(&self, index: ComponentTypeId) -> &ComponentInfo {
         &self.infos[index as usize]
     }
 }
