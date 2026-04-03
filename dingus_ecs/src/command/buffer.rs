@@ -1,4 +1,3 @@
-use super::prelude::*;
 use crate::archetype::prelude::*;
 use crate::world::World;
 use crate::entity::Entity;
@@ -12,7 +11,7 @@ enum Command {
 /// Flushed between stages by the Scheduler.
 
 pub struct CommandBuffer {
-    pub commands: Vec<Command>,
+    commands: Vec<Command>,
 }
 
 impl CommandBuffer {

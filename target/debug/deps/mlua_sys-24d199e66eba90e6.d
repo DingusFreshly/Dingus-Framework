@@ -1,0 +1,16 @@
+C:\Users\mobro\RustroverProjects\DingusEngine\target\debug\deps\mlua_sys-24d199e66eba90e6.d: C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\lib.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\macros.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\mod.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\compat.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lauxlib.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lua.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luacode.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luacodegen.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lualib.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luarequire.rs
+
+C:\Users\mobro\RustroverProjects\DingusEngine\target\debug\deps\libmlua_sys-24d199e66eba90e6.rmeta: C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\lib.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\macros.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\mod.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\compat.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lauxlib.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lua.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luacode.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luacodegen.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lualib.rs C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luarequire.rs
+
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\lib.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\macros.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\mod.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\compat.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lauxlib.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lua.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luacode.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luacodegen.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\lualib.rs:
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\mlua-sys-0.10.0\src\luau\luarequire.rs:
+
+# env-dep:LUAU_VERSION=0.709

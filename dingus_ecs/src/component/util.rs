@@ -1,4 +1,5 @@
 use std::any::TypeId;
+use hashed_type_def::{HashedTypeDef, HashedTypeUuid};
 use super::prelude::{ComponentTypeId};
 
 /// Computes a stable ComponentTypeId from std::any::TypeId.

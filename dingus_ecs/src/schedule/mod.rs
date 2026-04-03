@@ -5,5 +5,5 @@ mod stage;
 pub mod prelude {
     pub use super::system_param::SystemParam;
     pub use super::system_trait::{System,};
-    pub use super::stage::{Schedule, Stage, SystemId};
+    pub use super::stage::{Schedule, Stage};
 }

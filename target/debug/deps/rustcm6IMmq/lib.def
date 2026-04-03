@@ -1,0 +1,4 @@
+LIBRARY
+EXPORTS
+  __rustc_proc_macro_decls_3793785675862930__ DATA
+  rust_metadata_dingus_macros_3793785675862930 DATA

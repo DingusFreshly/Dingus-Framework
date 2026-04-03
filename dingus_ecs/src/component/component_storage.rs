@@ -1,7 +1,7 @@
 pub use super::prelude::{ComponentTypeId};
 use std::ptr::NonNull;
 use std::{
-    mem, ptr, slice, 
+    ptr,
     alloc::{alloc, dealloc, realloc, Layout}
 };
 //ignore the million errors
@@ -19,11 +19,10 @@ pub struct ComponentStorage {
     /// Allocated space
     pub capacity: usize,
 }
-
+#[allow(unsafe_op_in_unsafe_fn)]
 impl ComponentStorage {
     /// Allocations grow by this rate
     const INITIAL_CAPACITY: usize = 16;
-
     pub fn new(type_id: ComponentTypeId, layout: Layout) -> Self {
         assert!(layout.size() > 0, "ZST components not supported");
         let capacity = Self::INITIAL_CAPACITY;
@@ -45,15 +44,27 @@ impl ComponentStorage {
     }
 
     /// # Safety: T matches, row < len
+    #[inline]
     pub unsafe fn get<T>(&self, row: usize) -> &T {
         &*(self.data.as_ptr().add(row * self.layout.size()) as *const T)
     }
+    #[inline]
     pub unsafe fn get_mut<T>(&self, row: usize) -> &mut T {
         &mut *(self.data.as_ptr().add(row * self.layout.size()) as *mut T)
     }
+    #[inline]
     pub unsafe fn ptr_at(&self, row: usize) -> *mut u8 {
         self.data.as_ptr().add(row * self.layout.size())
     }
+    #[inline]
+    pub unsafe fn get_field<T>(&self, row: usize, offset: usize) -> &T {
+        &*(self.data.as_ptr().add(row * self.layout.size() + offset) as *const T)
+    }
+    #[inline]
+    pub unsafe fn get_field_mut<T>(&self, row: usize, offset: usize) -> &mut T {
+        &mut *(self.data.as_ptr().add(row * self.layout.size() + offset) as *mut T)
+    }
+    #[inline]
     pub fn base_ptr(&self) -> *mut u8 { self.data.as_ptr() }
     pub fn stride(&self) -> usize { self.layout.size() }
 

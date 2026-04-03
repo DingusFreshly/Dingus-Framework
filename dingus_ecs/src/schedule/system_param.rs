@@ -1,11 +1,10 @@
-use super::prelude::*;
 use crate::archetype::prelude::*;
 use crate::world::World;
 use crate::query::prelude::*;
 use crate::command::prelude::*;
 use crate::resource::prelude::{ResMut, Res};
 use crate::resource::ResourceTrait;
-/// A parameter to a system function, which can be a query, command buffer, resource, etc.
+/// A parameter to a system function, which can be a query, command buffer, resources, etc.
 pub trait SystemParam: Sized {
     type State:'static;//Send + Sync +
     type Item<'w>: SystemParam;
@@ -74,7 +73,7 @@ impl <R: ResourceTrait> SystemParam for Res<'_, R> {
     fn init_state(_world: &World) -> () { () }
 
     unsafe fn get_param<'w>(_state: &'w mut (), world: &'w World) -> Res<'w, R> {
-        Res { value: world.resources.get::<R>().expect("Resource not found") }
+        Res { value: world.resources.get::<R>().expect(format!{"Resource {:?} not found", R::NAME}.as_str()) }
     }
 
     fn component_access(_state: &()) -> Access { Access::default() }

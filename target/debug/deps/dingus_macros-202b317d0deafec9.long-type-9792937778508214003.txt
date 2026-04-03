@@ -1,0 +1,1 @@
+fn(ComponentParse) -> proc_macro2::TokenStream {gen_component::derive_component}: quote::ToTokens

@@ -5,5 +5,4 @@ edition = "2024"
 
 [dependencies]
 dingus_ecs = { path= "../dingus_ecs" }
-linkme = "0.3.35"
 dingus_builtins = { path = "../dingus_builtins" }

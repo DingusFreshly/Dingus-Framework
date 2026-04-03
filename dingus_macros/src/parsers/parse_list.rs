@@ -10,7 +10,6 @@ macro_call! {
 
  */
 
-use quote::quote;
 use syn::{Ident, parse::{Parse}};
 
 pub struct ListParser {

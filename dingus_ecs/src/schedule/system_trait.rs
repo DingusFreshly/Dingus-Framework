@@ -6,7 +6,7 @@ use crate::fast_bit::FASTBIT_WORDS;
 /// A System is a unit of logic that runs each frame, accessing components and resources according to its declared access patterns
 pub trait System {//Send + Sync
     fn name(&self) -> &'static str;
-    fn component_access(&self) -> &Access;//TODO! add resource access
+    fn component_access(&self) -> &Access;//TODO! add resources access
     fn initialize(&mut self, world: &World);
     /// # Safety: caller must ensure access rules
     unsafe fn run_unsafe(&mut self, world: &World);
@@ -31,7 +31,7 @@ pub trait SystemParamTuple: 'static {
     fn init_states(world: &World) -> Self::States;
     unsafe fn get_params<'w>(states: &'w mut Self::States, world: &'w World) -> Self::Items<'w>;
     fn component_access(states: &Self::States) -> Access;
-    //TODO! implement resource access
+    //TODO! implement resources access
     #[allow(unused_variables)]
     fn flush_commands(states: &mut Self::States, world: &mut World) {}
 }
@@ -50,7 +50,7 @@ macro_rules! impl_system_fn {
             type Items<'w> = ($(<$P as SystemParam>::Item<'w>,)*);
             
             fn init_states(world: &World) -> Self::States { ($($P::init_state(world),)*) }
-            #[allow(non_snake_case, unused_variables)]
+            #[allow(non_snake_case, unused_variables,unsafe_op_in_unsafe_fn)]
             unsafe fn get_params<'w>(states: &'w mut Self::States, world: &'w World) -> Self::Items<'w> {
                 let ($($P,)*) = states;
                 ($($P ::get_param($P, world),)*)
@@ -97,7 +97,7 @@ macro_rules! impl_system_fn {
             }
         }
         
-        #[allow(non_snake_case)]
+        #[allow(non_snake_case, unsafe_op_in_unsafe_fn)]
         impl<Func, $($P),*> System
         for FunctionSystem<Func, ($($P,)*)>
         where

@@ -1,4 +1,4 @@
 [workspace]
-members = ["dingus_ecs"
+resolver = "3"
 
-, "dingus_macros", "dingus_builtins", "sandbox"]
+members = ["dingus_ecs", "dingus_macros", "dingus_builtins", "sandbox"]

@@ -9,6 +9,7 @@ pub fn generate_resource_impls(idents: Vec<Ident>) -> proc_macro2::TokenStream {
             quote! {
                 impl #dingus_internal_path::ResourceTrait for #ident {
                     const RESOURCE_INDEX: #dingus_internal_path::ResourceId = #i as #dingus_internal_path::ResourceId;
+                    const NAME: &'static str = stringify!(#ident);
                 }
             }
         }

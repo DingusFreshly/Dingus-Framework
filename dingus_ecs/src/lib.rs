@@ -12,6 +12,8 @@ mod query;
 mod command;
 mod schedule;
 mod generated;
+mod reg_loc;
+mod export;
 // ============================
 // Public API
 // ============================
@@ -26,19 +28,22 @@ pub use entity::Entity;
 
 pub mod prelude {
     pub use crate::{
-        World,
         Entity,
+        World,
     };
-
-    pub use crate::query::prelude::{Query, ArchetypeQuery, With, Without};
+    pub use hashed_type_def::HashedTypeDef;
+    pub use crate::query::prelude::{ArchetypeQuery, Query, With, Without};
     pub use crate::resource::prelude::{Res, ResMut};
     pub use crate::command::prelude::Commands;
     pub use crate::schedule::prelude::{Schedule, Stage};
+    pub use crate::component::prelude::ComponentTrait;
 
     pub use dingus_macros::{
-        include_resources,
         include_archetypes,
         include_components,
+        include_resources,
+        Component,
+        archetype
     };
 }
 
@@ -61,23 +66,30 @@ pub mod internal {
     };
 
     pub use crate::resource::{
-        ResourceTrait,
         prelude::{ResourceId, ResourceMap},
+        ResourceTrait,
     };
-
+    pub use crate::prelude::World;
+    
+    pub use crate::reg_loc::{DenseIndex, RegisteredLocation, RegisterType};
     pub use crate::component::{
+        //ExportPropertyInfo,
+
         prelude::{
             ComponentInfo,
             ComponentRegistry,
             ComponentTrait,
             ComponentTypeId,
+            
         },
-        utils::{make_drop_fn, type_id_to_component_id},
+        utils::{const_fnv1a, make_drop_fn, type_id_to_component_id},
     };
 
-    pub use crate::command::prelude::{Commands, CommandBuffer};
-
+    pub use crate::command::prelude::{CommandBuffer, Commands};
+    pub use crate::export::{DingusPrimitive, InstanceDef, DingusTypeHint,PropertyDef,ScriptError};
     pub use crate::fast_bit::FastBit;
+    pub use phf::Map as PhfMap;
+    pub use phf::phf_map;
 
     pub use crate::generated::{
         ALL_ARCHETYPE_DESCRIPTORS,

@@ -3,6 +3,7 @@ use crate::component::prelude::{ComponentRegistry, ComponentInfo,ComponentTrait}
 use crate::entity::{Entity, EntityIndex, EntityLocation};
 use crate::resource::prelude::ResourceMap;
 use crate::archetype::prelude::{Archetype, ArchetypeBundle, StaticArchetypeDescriptor, ArchetypeMarker};
+use crate::export::DingusPrimitive;
 use crate::internal::{ALL_ARCHETYPE_DESCRIPTORS, ALL_COMPONENTS};
 use crate::resource::ResourceTrait;
 /// central struct for storing, creating and destroying ecs data
@@ -12,7 +13,7 @@ pub struct World {
 
     /// Cached ComponentInfo slices for each archetype (same index as archetypes).
     /// Used by swap_remove_row to call drop functions
-    archetype_infos: Vec<Vec<ComponentInfo>>,
+    archetype_infos: Vec<StaticArchetypeDescriptor>,
 
     /// Dense entity to (archetype_id, row) table
     pub entity_locations: Vec<EntityLocation>,
@@ -56,29 +57,21 @@ impl World {
 
         // 3:Build ComponentInfo slices for each archetype.
         let mut archetypes = Vec::with_capacity(raw_descs.len());
-        let mut archetype_infos = Vec::with_capacity(raw_descs.len());
 
         for desc in &raw_descs {
-            // Gather component infos for this archetypes components
-            // sorted by ComponentTypeId to match column order
-            let mut infos: Vec<ComponentInfo> = desc.component_set
-                .iter_set()
-                .map(|comp_index| registry.get_by_index(comp_index).clone())
-                .collect();
-            infos.sort_by_key(|i| i.type_id);
 
-            archetypes.push(Archetype::from_descriptor(desc, &infos));
-            archetype_infos.push(infos);
+            archetypes.push(Archetype::from_descriptor(desc));
         }
+        debug_assert!(archetypes.len() == raw_descs.len(), "Mismatch between archetype descriptors and archetypes");
 
         World {
             archetypes,
-            archetype_infos,
-            entity_locations: Vec::new(),
-            entity_freelist: Vec::new(),
-            entity_generation: Vec::new(),
-            entity_count: 0,
-            resources: ResourceMap::new(),
+            archetype_infos:    raw_descs,
+            entity_locations:   Vec::new(),
+            entity_freelist:    Vec::new(),
+            entity_generation:  Vec::new(),
+            entity_count:       0,
+            resources:          ResourceMap::new(),
             component_registry: registry,
         }
     }
@@ -137,8 +130,8 @@ impl World {
         }
 
         let loc = self.entity_locations[entity.index as usize];
-        let infos = self.archetype_infos[loc.archetype_id as usize].clone();
-
+        let infos = self.archetype_infos[loc.archetype_id as usize].component_infos.clone();
+        debug_assert!(infos.len() == self.archetypes[loc.archetype_id as usize].columns.len(), "Component infos not initialized correctly for archetype");
         let moved = self.archetypes[loc.archetype_id as usize]
             .swap_remove_row(loc.row as usize, &infos);
 
@@ -184,7 +177,7 @@ impl World {
     }
 }
 
-//resource impl
+//resources impl
 impl World {
     
     pub fn insert_resource<T: ResourceTrait +'static>(&mut self, value: T) {// Send + Sync + 

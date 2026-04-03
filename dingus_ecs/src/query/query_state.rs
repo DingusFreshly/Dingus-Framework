@@ -4,7 +4,7 @@ use std::marker::PhantomData;
 use crate::world::World;
 pub struct QueryState<Q: QueryParam> {
     /// Immutable after World::new().
-    pub matched_archetypes: Vec<ArchetypeId>,//TODO! add resource access before parralel
+    pub matched_archetypes: Vec<ArchetypeId>,//TODO! add resources access before parralel
     pub component_access: Access,
     _phantom: PhantomData<Q>,
 }

@@ -21,7 +21,8 @@ pub struct Archetype {
 impl Archetype {
     /// Create storage for a known archetype
     /// `infos` must be sorted by ComponentTypeId (matches column order)
-    pub fn from_descriptor(desc: &StaticArchetypeDescriptor, infos: &[ComponentInfo]) -> Self {
+    pub fn from_descriptor(desc: &StaticArchetypeDescriptor) -> Self {
+        let infos = &desc.component_infos;
         let mut columns = Vec::with_capacity(infos.len());
         let mut column_index = HashMap::new();
         
@@ -34,6 +35,7 @@ impl Archetype {
             }
             columns.push(col);
         }
+        debug_assert!(columns.len() == infos.len(), "Mismatch between component infos and columns");
         Archetype {
             component_set: desc.component_set,
             columns,

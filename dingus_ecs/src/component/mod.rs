@@ -8,12 +8,13 @@ mod component_storage;
 /// Assigned once at registration time; stable for the lifetime of the process.
 pub type ComponentTypeId = u64;
 
-pub const EMPTY_COMPONENT : u64 = u64::MAX;
+pub const EMPTY_COMPONENT : ComponentTypeId = u64::MAX;
+//pub use component_property::ExportPropertyInfo;
 
 pub mod utils {
     pub use super::util::type_id_to_component_id;
     pub use super::util::make_drop_fn;
-    pub use super::util::const_fnv1a;
+        pub use super::util::const_fnv1a;
 }
 
 

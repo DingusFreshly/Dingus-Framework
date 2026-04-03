@@ -2,17 +2,16 @@ use std::collections::HashSet;
 use std::time::{Duration, Instant};
 use dingus_ecs::internal::{Commands, Entity};
 use dingus_ecs::prelude::{Query, Res, ResMut,ArchetypeQuery};
-use crate::components::{Health, Player, Position, Velocity, Size, Damage};
+use crate::components::{Health, Player, Position, Velocity, Size};
 use crate::resources::{Renderer, Time};
 use minifb::Key;
-use minifb::Key::Key0;
 use crate::consts::*;
 use crate::generated::*;
 use rand;
 
 pub fn collision_system(
     player: ArchetypeQuery<PlayerArchetype, (&Position, &mut Health, Entity)>,
-    mut asteroids: ArchetypeQuery<AsteroidArchetype, (&Position, &mut Health, &Size, Entity)>,
+    asteroids: ArchetypeQuery<AsteroidArchetype, (&Position, &mut Health, &Size, Entity)>,
     mut commands: Commands,
 ) {
     for (p_pos, p_health, p_entity_id) in player.iter() {
@@ -39,13 +38,13 @@ pub fn collision_system(
 }
 pub fn asteroid_bullet_collision_system(
     bullets: ArchetypeQuery<BulletArchetype, &Position>,
-    mut asteroids: ArchetypeQuery<AsteroidArchetype, (&Position, &mut Health, &Size, Entity)>,
+    asteroids: ArchetypeQuery<AsteroidArchetype, (&Position, &mut Health, &Size, Entity)>,
     mut commands: Commands,
 ) {
     let mut destroyed = HashSet::new();
     
-    for (b_pos) in bullets.iter() {
-        for (a_pos, mut a_health, a_size, entity_id) in asteroids.iter() {
+    for b_pos in bullets.iter() {
+        for (a_pos, a_health, a_size, entity_id) in asteroids.iter() {
             let dx = b_pos.0 - a_pos.0;
             let dy = b_pos.1 - a_pos.1;
             let distance = (dx * dx + dy * dy).sqrt();
@@ -83,7 +82,7 @@ pub fn asteroid_spawn_system(mut commands: Commands, time: Res<Time>) {
         let size = rand::Rng::gen_range(&mut rng, ASTEROID_SIZE_RANGE);
         let health = rand::Rng::gen_range(&mut rng, ASTEROID_HEALTH_RANGE);
         
-        commands.spawn::<AsteroidArchetype>(AsteroidBundle {
+        commands.spawn::<AsteroidArchetype>(AsteroidArchetypeBundle {
             position: Position(x, y),
             velocity: Velocity(vel.0, vel.1),
             health: Health(health),
@@ -93,7 +92,7 @@ pub fn asteroid_spawn_system(mut commands: Commands, time: Res<Time>) {
 }
 
 pub fn movement_system(
-    mut query: Query<(&mut Position, &mut Velocity, Option<&mut Player>)>, 
+    query: Query<(&mut Position, &mut Velocity, Option<&mut Player>)>,
     time: Res<Time>,
     renderer: Res<Renderer>,
     mut commands: Commands,
@@ -135,7 +134,7 @@ pub fn movement_system(
                     vel.1 += BULLET_SPEED  ;
                 }
                 if vel.0 != 0.0 || vel.1 != 0.0 {
-                    commands.spawn::<BulletArchetype>(BulletBundle {
+                    commands.spawn::<BulletArchetype>(BulletArchetypeBundle {
                         position: Position(pos.0, pos.1),
                         velocity: Velocity(vel.0 * BULLET_SPEED, vel.1 * BULLET_SPEED),
                     });

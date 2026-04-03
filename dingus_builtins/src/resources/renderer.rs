@@ -1,5 +1,4 @@
 use minifb::{Window, WindowOptions, Key};
-use std::time::{Instant, Duration};
 #[derive(Debug)]
 pub struct Renderer {
     pub window: Window,

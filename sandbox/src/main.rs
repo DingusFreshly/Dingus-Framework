@@ -1,11 +1,6 @@
-use std::thread::Thread;
-use dingus_ecs::prelude::*;
-use linkme;
-
-
 use dingus_builtins::{systems::*};
 use dingus_builtins::resources::{Renderer, Time};
-use dingus_builtins::components::{Position, Velocity, Player, Size, Health};
+use dingus_builtins::components::{Position, Velocity, Player, Health};
 use dingus_builtins::generated::*;
 use dingus_ecs::prelude::*;
 use std::time::Instant;
@@ -21,14 +16,11 @@ fn main() {
             start_time: Instant::now(),
         }
     );
-    
-    world.insert_resource(
-        Renderer::new("Dingus", SCREEN_WIDTH, SCREEN_HEIGHT)
-    );
-    
-    world.spawn::<PlayerArchetype>(PlayerBundle {
+    world.insert_resource(Renderer::new("Asteroids - Dingus Engine", 800, 600));
+
+    let player = world.spawn::<PlayerArchetype>(PlayerArchetypeBundle {
         position: Position(0.0, 0.0),
-        player: Player{
+        player: Player {
             last_shot: Instant::now(),
             can_shoot: true,
         },
@@ -48,7 +40,6 @@ fn main() {
     let stage3 = Stage::new("Render")
         .with_system("render", render_system);
 
-
     schedule.add_stage(
         stage1
     );
@@ -65,5 +56,4 @@ fn main() {
         
     }
     
-    println!("Hello, world!");
 }

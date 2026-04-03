@@ -13,6 +13,7 @@ pub trait QueryParam {
 }
 
 // &T
+#[allow(unsafe_op_in_unsafe_fn)]
 impl<T: ComponentTrait> QueryParam for &T {
     type Item<'a> = &'a T;
     type State = ();
@@ -24,6 +25,7 @@ impl<T: ComponentTrait> QueryParam for &T {
 }
 
 // &mut T
+#[allow(unsafe_op_in_unsafe_fn)]
 impl<T: ComponentTrait> QueryParam for &mut T {
     type Item<'a> = &'a mut T;
     type State = ();
@@ -37,6 +39,7 @@ impl<T: ComponentTrait> QueryParam for &mut T {
 }
 
 /// Returns the item only if it exists
+#[allow(unsafe_op_in_unsafe_fn)]
 impl<T: ComponentTrait> QueryParam for Option<&T> {
     type Item<'a> = Option<&'a T>;
     type State = ();
@@ -57,6 +60,7 @@ impl QueryParam for Entity {
         a.entities[row]
     }
 }
+#[allow(unsafe_op_in_unsafe_fn)]
 impl<T: ComponentTrait> QueryParam for Option<&mut T> {
     type Item<'a> = Option<&'a mut T>;
     type State = ();
@@ -91,6 +95,7 @@ impl<T: ComponentTrait> QueryParam for Without<T> {
 // Tuple impls
 macro_rules! impl_query_param {
     ($($T:ident),*) => {
+        #[allow(unsafe_op_in_unsafe_fn)]
         impl<$($T: QueryParam),*> QueryParam for ($($T,)*) {
             type Item<'a> = ($($T::Item<'a>,)*);
             type State = ($($T::State,)*);

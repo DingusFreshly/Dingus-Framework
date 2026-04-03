@@ -1,6 +1,4 @@
 use super::prelude::{ComponentTypeId, ComponentInfo};
-use std::collections::HashMap;
-use linkme::distributed_slice;
 use crate::fast_bit::FASTBIT_WORDS;
 
 /// Maximum distinct component types the bitset can track.
@@ -10,7 +8,7 @@ pub const MAX_COMPONENTS: usize = FASTBIT_WORDS * 64;
 /// Global mutable registry, written once at startup by `World`, read-only thereafter.
 pub struct ComponentRegistry {
     /// Indexed by ComponentIndex
-    infos: Vec<ComponentInfo>,
+    pub(crate) infos: Vec<ComponentInfo>,
     // Maps ComponentTypeId hash to its index in infos, only used during debug
     //by_type_id: HashMap<ComponentTypeId, ComponentIndex>,
 }
@@ -24,7 +22,7 @@ impl ComponentRegistry {
 
     /// Register a component type and return its assigned ComponentIndex.
     /// Panics if called after simulation begins or if MAX_COMPONENTS is exceeded.
-    pub fn register(&mut self, mut info: ComponentInfo) -> ComponentTypeId {
+    pub fn register(&mut self, info: ComponentInfo) -> ComponentTypeId {
         assert!(
             self.infos.len() < MAX_COMPONENTS,
             "ComponentRegistry: exceeded MAX_COMPONENTS ({}), increase `FastBit::FASTBIT_WORDS` to add more", MAX_COMPONENTS
@@ -33,7 +31,7 @@ impl ComponentRegistry {
         let index = info.type_id;
 
         if self.infos.len() <= index as usize {
-            self.infos.resize(index as usize + 1, unsafe { ComponentInfo::empty() });
+            self.infos.resize(index as usize + 1,  ComponentInfo::empty());
         }
         
         self.infos[index as usize ] = info ;

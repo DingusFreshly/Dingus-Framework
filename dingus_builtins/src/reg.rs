@@ -3,11 +3,13 @@ use dingus_ecs::prelude::*;
 
 use crate::resources::{Time, Renderer};
 use crate::components::{Position,Health,Player,Velocity, Size};
+use crate::archetypes::Test;
 
 include_resources!{
     Time,
     Renderer,
 }
+
 
 include_components!{
     Position,
@@ -17,18 +19,23 @@ include_components!{
     Size,
 }
 
+//archetypes are either defined by passing in a struct, that implements archetype marker, or a table as shown here, where it will derive it
 include_archetypes! {
-    Asteroid [
+     AsteroidArchetype [
         Size,
         Position,
         Velocity,
         Health,
-    ]
-    Bullet [
+
+    ],
+
+    Test,
+
+    BulletArchetype [
         Position,
         Velocity,
     ]
-    Player [
+    PlayerArchetype [
         Player,
         Position,
         Velocity,

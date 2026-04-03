@@ -16,6 +16,7 @@ pub mod prelude {
     pub use super::archetype_bundle::ArchetypeBundle;
     pub use super::archetype_static_descriptor::StaticArchetypeDescriptor;
     pub use super::archetype_struct::Archetype;
+    #[allow(unused)]
     pub use super::EMPTY_ARCHETYPE_ID;
     
     //pub use super::archetype_struct::ALL_ARCHETYPE_DESCRIPTORS;

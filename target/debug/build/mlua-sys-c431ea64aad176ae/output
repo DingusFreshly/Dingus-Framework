@@ -1,0 +1,391 @@
+cargo:rerun-if-changed=build
+Allocator.cpp
+Ast.cpp
+Confusables.cpp
+Cst.cpp
+Lexer.cpp
+Location.cpp
+Parser.cpp
+PrettyPrinter.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+AssemblyBuilderA64.cpp
+AssemblyBuilderX64.cpp
+BytecodeAnalysis.cpp
+BytecodeSummary.cpp
+CodeAllocator.cpp
+CodeBlockUnwind.cpp
+CodeGen.cpp
+CodeGenA64.cpp
+CodeGenContext.cpp
+CodeGenAssembly.cpp
+CodeGenUtils.cpp
+EmitBuiltinsX64.cpp
+IrAnalysis.cpp
+CodeGenX64.cpp
+EmitInstructionX64.cpp
+EmitCommonX64.cpp
+IrBuilder.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+IrCallWrapperX64.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+IrDump.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+IrLoweringX64.cpp
+IrRegAllocA64.cpp
+IrLoweringA64.cpp
+IrTranslation.cpp
+IrRegAllocX64.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+IrTranslateBuiltins.cpp
+IrUtils.cpp
+NativeProtoExecData.cpp
+NativeState.cpp
+OptimizeConstProp.cpp
+IrValueLocationTracking.cpp
+OptimizeDeadStore.cpp
+OptimizeFinalX64.cpp
+SharedCodeAllocator.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+UnwindBuilderDwarf2.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+UnwindBuilderWin.cpp
+lcodegen.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1224): note: the template instantiation context (the oldest one first) is
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,0>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Luau::CodeGen::FunctionStats>>>
+        ]
+C:\Users\mobro\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\luau0-src-0.18.3+luau709\luau\CodeGen\include\Luau/LoweringStats.h(96): note: see the first reference to 'std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::insert' in 'Luau::CodeGen::LoweringStats::operator +='
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(1282): note: see reference to function template instantiation 'void std::vector<Luau::CodeGen::FunctionStats,std::allocator<Luau::CodeGen::FunctionStats>>::_Insert_counted_range<const Luau::CodeGen::FunctionStats*>(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,const unsigned __int64)' being compiled
+        with
+        [
+            _Ty=Luau::CodeGen::FunctionStats,
+            _Iter=const Luau::CodeGen::FunctionStats *
+        ]
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+StringUtils.cpp
+TimeTrace.cpp
+exit code: 0
+exit code: 0
+BuiltinFolding.cpp
+Builtins.cpp
+BytecodeBuilder.cpp
+Compiler.cpp
+ConstantFolding.cpp
+CostModel.cpp
+TableShape.cpp
+Types.cpp
+ValueTracking.cpp
+lcode.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+Config.cpp
+LinterConfig.cpp
+LuauConfig.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+lextra.cpp
+lflags.cpp
+exit code: 0
+exit code: 0
+AliasCycleTracker.cpp
+Navigation.cpp
+PathUtilities.cpp
+Require.cpp
+RequireImpl.cpp
+RequireNavigator.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+lapi.cpp
+laux.cpp
+lbaselib.cpp
+lbitlib.cpp
+lbuffer.cpp
+lbuflib.cpp
+lbuiltins.cpp
+lcorolib.cpp
+ldblib.cpp
+ldebug.cpp
+ldo.cpp
+lfunc.cpp
+lgc.cpp
+lgcdebug.cpp
+linit.cpp
+lmathlib.cpp
+lmem.cpp
+lnumprint.cpp
+lobject.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+loslib.cpp
+lperf.cpp
+lstate.cpp
+lstring.cpp
+lstrlib.cpp
+ltable.cpp
+ltablib.cpp
+ltm.cpp
+ludata.cpp
+lutf8lib.cpp
+lveclib.cpp
+lvmexecute.cpp
+lvmload.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+lvmutils.cpp
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+exit code: 0
+cargo:rustc-link-search=native=c:\Users\mobro\RustroverProjects\DingusEngine\target\debug\build\mlua-sys-c431ea64aad176ae\out\luau-build
+cargo:rustc-link-lib=static=luauvm
+cargo:rustc-link-lib=static=luaucompiler
+cargo:rustc-link-lib=static=luauast
+cargo:rustc-link-lib=static=luaucommon
+cargo:rustc-link-lib=static=luauconfig
+cargo:rustc-link-lib=static=luaucustom
+cargo:rustc-link-lib=static=luaurequire
+cargo:rustc-link-lib=static=luaucodegen
+cargo:rustc-env=LUAU_VERSION=0.709

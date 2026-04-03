@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/dingus_macros/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/sandbox/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dingus_renderer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dingus_export/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dingus_scripting/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

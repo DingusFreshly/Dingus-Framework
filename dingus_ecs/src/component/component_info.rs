@@ -1,9 +1,11 @@
 use super::{ComponentTypeId};
 use std::alloc::Layout;
+
 /// Everything the ECS needs to know about a component type at runtime.
 /// Produced by the include_components! macro and registered once at startup.
 #[derive(Clone, Debug)]
 pub struct ComponentInfo {
+    
     /// dense index in [0, MAX_COMPONENTS) that represents its id. Assigned by ComponentRegistry.
     pub type_id: ComponentTypeId,
 
@@ -16,6 +18,8 @@ pub struct ComponentInfo {
 
     /// Human readable name (from std::any::type_name). Editor / debug only.
     pub name: &'static str,
+    // Properties of this component that should be exported to the editor. Editor only.
+    //pub export_properties : &'static [ExportPropertyInfo],
 }
 impl ComponentInfo {
     pub fn empty() -> ComponentInfo {
@@ -23,7 +27,8 @@ impl ComponentInfo {
             type_id : super::EMPTY_COMPONENT,
             layout: Layout::new::<ComponentTypeId>(),
             drop_fn: None,
-            name: "EMPTY COMPONENT - THIS INDICATES AN ERROR MOST LIKELY"
+            name: "EMPTY COMPONENT - THIS INDICATES AN ERROR MOST LIKELY",
+            //export_properties: &[],
         }
     }
 }

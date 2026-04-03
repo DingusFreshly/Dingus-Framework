@@ -10,3 +10,5 @@ keywords = ["ecs", "archetypal-ecs", "game-development", "rust", "dingus-engine"
 [dependencies]
 linkme = "0.3.0"
 dingus_macros = { path = "../dingus_macros" }
+phf = { version = "0.13.1", features = ["macros"] }
+hashed-type-def = "0.1.2"

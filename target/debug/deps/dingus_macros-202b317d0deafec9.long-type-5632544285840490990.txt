@@ -1,0 +1,1 @@
+Map<std::slice::Iter<'_, FieldAccessor>, {closure@dingus_macros\src\generators\gen_component.rs:41:54: 41:68}>
